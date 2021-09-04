@@ -7,6 +7,7 @@ const prefix = ".";
 
 //All command imports
 const pingCommand = require("./commands/misc/ping");
+const docsCommand = require("./commands/msg/docs")
 
 client.on("ready", () => {
   console.log(`${client.user.tag} is ready!`);
@@ -25,6 +26,8 @@ client.on("message", (message) => {
 
   if (command == "ping") {
     pingCommand(client, message);
+  } else if (command == "docs") {
+    docsCommand(message, args[0])
   }
 });
 
