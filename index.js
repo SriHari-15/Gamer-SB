@@ -7,10 +7,19 @@ const prefix = ".";
 
 //All command imports
 const pingCommand = require("./commands/misc/ping");
-const docsCommand = require("./commands/msg/docs")
+const docsCommand = require("./commands/msg/docs");
 
 client.on("ready", () => {
   console.log(`${client.user.tag} is ready!`);
+  client.user.setPresence(
+    {
+      activity:{
+        name: "anime ❤️",
+        type: "WATCHING"
+      },
+      status: "idle"
+    }
+  )
 });
 
 client.on("message", (message) => {
@@ -27,7 +36,7 @@ client.on("message", (message) => {
   if (command == "ping") {
     pingCommand(client, message);
   } else if (command == "docs") {
-    docsCommand(message, args[0])
+    docsCommand(message, args[0]);
   }
 });
 
